@@ -1,4 +1,11 @@
-<?php  include 'compute.php' ?>
+
+<?php
+if(isset($_POST['btn1'])) {
+    include('compute.php');
+} else if(isset($_POST['btn2'])) {
+    include('uploadCompute.php');
+}
+?>
 
 <!DOCTYPE html>
 <html>

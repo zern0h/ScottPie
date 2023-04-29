@@ -1,10 +1,9 @@
 <?php
-
 // Convert string input to array
 $str_arrA = explode (",", $obsA); 
 $str_arrB = explode (",", $obsB);
 
-// Array length
+// Array length (Number of Observations)
 $no_elementA = count($str_arrA);
 $no_elementB = count($str_arrB);
 

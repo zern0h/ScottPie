@@ -75,16 +75,9 @@
            <input class="form-control" minlength=6 rows="4" name="ObsB" pattern="^[0-9]+(,[0-9]+)*$" autocomplete="off" required placeholder="Numbers (separate each value with a comma)"></input>
          </div>
 
-         <button class="btn-click text-center" type="submit">Compute</button>
+         <button name="btn1" class="btn-click text-center" type="submit">Compute</button>
          
         </form>
-
-        <div class="mb-3 py-5">
-          <label for="formFile" class="form-label">Upload Spreadsheet</label>
-          <input class="form-control" type="file" id="formFile">
-        </div>
-
-
         <?php 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Get input field value
@@ -98,7 +91,17 @@
                 
             }
             ?> 
-          
+
+        <!--  Upload Spreadsheet -->
+        <h4 class="pt-5" data-aos="fade-up">Alternatively, Upload Spreadsheet File</h4>
+        <form id="upload-form" method="post" action="result.php" onsubmit="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
+        <div class="mb-3 pt-3 pb-5">
+          <label for="formFile" class="form-label">Upload Spreadsheet</label>
+          <input class="form-control" type="file" id="formFile" name="file" >
+        </div>
+        <button name="btn2" class="btn-click text-center" type="submit">Upload & Compute</button>
+        </form> 
+      
       
       </div>
     </div>
@@ -107,11 +110,11 @@
   <main id="main" style="display: none ;" >
 
     <!-- ======= Result Section ======= -->
-    <section id="result" class="result" ">
+    <section id="result" class="result">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header d-flex align-items-center justify-content-between ">
-          <p>Generated  <span>Table</span></p>
+          <p>Generated<span>Table</span></p>
           <button class="btn-export" onclick="ExportToExcel('xlsx')">Export Table</button>
         </div>
             <div class="pt-2"><?php  include 'table.php' ?></div>
@@ -160,6 +163,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
 
 </body>
 

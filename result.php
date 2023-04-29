@@ -28,6 +28,7 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+ 
 
 
 </head>
@@ -45,7 +46,7 @@
       <nav id="navbar" class="navbar">
        
       </nav><!-- .navbar -->
-      <a class="btn-click" href="index.php#compute">Back</a>
+      <a class="btn-click" href="index.php">Back</a>
     
 
     </div>
@@ -80,10 +81,14 @@
          
         </form>
 
+        //Spreadsheet Upload
+        
         <div class="mb-3">
           <label for="formFile" class="form-label">Default file input example</label>
           <input class="form-control" type="file" id="formFile">
         </div>
+
+     
 
 
         <?php 
@@ -110,7 +115,7 @@
   <main id="main" >
 
     <!-- ======= Result Section ======= -->
-    <section id="result" class="result" ">
+    <section id="result" class="result">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header d-flex align-items-center justify-content-between ">
@@ -118,6 +123,7 @@
           <button class="btn-export" onclick="ExportToExcel('xlsx')">Export Table</button>
         </div>
             <div class="pt-2"><?php  include 'table.php' ?></div>
+            
 
     <script>
         function ExportToExcel(type, fn, dl) {
@@ -161,6 +167,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
 
 </body>
 
