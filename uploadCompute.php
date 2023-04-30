@@ -26,6 +26,14 @@
       $columnData = array();
       for ($row = 1; $row <= $highestRow; $row++) {
           $cellValue = $worksheet->getCellByColumnAndRow($col, $row)->getValue();
+
+           // Check if cell value is numeric
+           if (!is_numeric($cellValue)) {
+            // if non-numeric value found, throw an error and go back to index.php
+            echo '<script>alert("Non-numeric value found in uploaded spreadsheet. Please upload a spreadsheet containing only numeric values in the first two columns."); window.location.href = "index.php";</script>';
+            exit();
+        }
+
           $columnData[] = $cellValue;
       }
       $data[] = $columnData;

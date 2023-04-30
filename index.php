@@ -18,9 +18,6 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -54,15 +51,15 @@
   <section id="home" class="home d-flex align-items-center section-bg">
     <div class="container">
       <div class="row justify-content-between gy-4">
-        <h2 class="col-lg-12 text-center" data-aos="fade-up">Calculate your Scott's Pi Value</h2>
+        <h2 class="col-lg-12 text-center">Calculate your Scott's Pi Value</h2>
         <div class="col-lg-7 order-1 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"> 
-            <p data-aos="fade-up"> <b> Scott's Pi </b> is given by: \[&pi; = {Po-Pe \over 100-Pe}\] where Po is the amount of observed agreement between observers/coders;
+            <p  > <b> Scott's Pi </b> is given by: \[&pi; = {Po-Pe \over 100-Pe}\] where Po is the amount of observed agreement between observers/coders;
             <br>and, Pe is the amount of expected agreement between observers/coders.</p>
-            <p data-aos="fade-up"> <b> Po is given by: </b> \[Po = {100-\text{Sum of %Difference}}\] \[Po = {100-&Sigma;\text{%}|ObsA-ObsB|}\]</p>
-            <p data-aos="fade-up"> <b> Pe is given by: </b> \[Pe = {\text{Sum of Average %Difference}}\] \[Pe = { &Sigma;({ ObsA \times ObsB \over 100})}\]</p>
+            <p  > <b> Po is given by: </b> \[Po = {100-\text{Sum of %Difference}}\] \[Po = {100-&Sigma;\text{%}|ObsA-ObsB|}\]</p>
+            <p  > <b> Pe is given by: </b> \[Pe = {\text{Sum of Average %Difference}}\] \[Pe = { &Sigma;({ ObsA \times ObsB \over 100})}\]</p>
         </div>
         <div class="col-lg-5 order-2 order-lg-2 text-center text-lg-start">
-        <h4 data-aos="fade-up" id="compute">Input Observation Values</h4>
+        <h4   id="compute">Input Observation Values</h4>
         <form method="post" action="result.php" onsubmit="<?php echo $_SERVER['PHP_SELF'];?>">
 
           <div class="form-group pt-5">
@@ -93,14 +90,34 @@
             ?> 
 
         <!--  Upload Spreadsheet -->
-        <h4 class="pt-5" data-aos="fade-up">Alternatively, Upload Spreadsheet File</h4>
-        <form id="upload-form" method="post" action="result.php" onsubmit="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
+        <h4 class="pt-5"  >Alternatively, Upload Spreadsheet File</h4>
+        <form onsubmit="return validateForm()" accept=".xlsx,.xls" id="upload-form" method="post" action="result.php"  enctype="multipart/form-data">
         <div class="mb-3 pt-3 pb-5">
           <label for="formFile" class="form-label">Upload Spreadsheet</label>
           <input class="form-control" type="file" id="formFile" name="file" >
         </div>
         <button name="btn2" class="btn-click text-center" type="submit">Upload & Compute</button>
         </form> 
+
+          <script>
+          function validateForm() {
+          var fileInput = document.getElementById('formFile');
+          var fileName = fileInput.value;
+          var allowedExtensions = /(\.xlsx|\.xls)$/i;
+
+          if (fileName == '') {
+            alert("Please select a file to upload(.xlsx or .xls).");
+            return false;
+          } else if (!allowedExtensions.exec(fileName)) {
+            alert("Please upload only Microsoft Excel files.");
+            fileInput.value = '';
+            return false;
+          } else {
+            return true;
+          }
+}
+
+          </script>
       
       
       </div>
@@ -111,7 +128,7 @@
 
     <!-- ======= Result Section ======= -->
     <section id="result" class="result">
-      <div class="container" data-aos="fade-up">
+      <div class="container"  >
 
         <div class="section-header d-flex align-items-center justify-content-between ">
           <p>Generated<span>Table</span></p>
@@ -155,10 +172,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
  
 
   <!-- Template Main JS File -->
