@@ -144,9 +144,9 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    <div class="container">
+  <div class="container">
       <div class="credits">
-        Developed by <a href="#">Muh</a>
+        Developed by <a href="https://muideen.netlify.app">Muh</a>
       </div>
     </div>
 
